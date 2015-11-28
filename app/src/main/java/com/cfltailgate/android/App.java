@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.parse.Parse;
+import com.parse.ParseFacebookUtils;
 
 /**
  * Created by julianlo on 11/27/15.
@@ -21,8 +22,8 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         Parse.initialize(this, "O42EnlSusAV8acWyShmFdjQywzf93LHLcn3XHX3Q", "rjWTgjijmbZJex6eiew9V4apNRIU6RulsemLcLSj");
+        ParseFacebookUtils.initialize(getApplicationContext());
     }
 
     public static App getInstance() {
