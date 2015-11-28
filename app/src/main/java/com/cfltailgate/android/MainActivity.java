@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity
         gameAdapter = new GameAdapter(MainActivity.this, R.layout.adapter_game_item, new ArrayList<ParseObject>());
         gamesList.setAdapter(gameAdapter);
 
-
     }
 
     @Override
