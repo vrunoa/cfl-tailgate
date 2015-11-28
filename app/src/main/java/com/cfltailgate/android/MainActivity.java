@@ -53,8 +53,9 @@ public class MainActivity extends AppCompatActivity
 
         ListView gamesList = (ListView) findViewById(R.id.gameListView);
 
-        gameAdapter = new GameAdapter(MainActivity.this, R.layout.adapter_game_item, new ArrayList<ParseObject>);
+        gameAdapter = new GameAdapter(MainActivity.this, R.layout.adapter_game_item, new ArrayList<ParseObject>());
         gamesList.setAdapter(gameAdapter);
+
 
     }
 
