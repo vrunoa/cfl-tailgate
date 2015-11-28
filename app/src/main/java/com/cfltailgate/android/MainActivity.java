@@ -14,8 +14,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.cfltailgate.android.adapters.GameAdapter;
+import com.parse.ParseObject;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private GameAdapter gameAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +52,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         ListView gamesList = (ListView) findViewById(R.id.gameListView);
+
+        gameAdapter = new GameAdapter(MainActivity.this, R.layout.adapter_game_item, new ArrayList<ParseObject>);
+        gamesList.setAdapter(gameAdapter);
 
     }
 
