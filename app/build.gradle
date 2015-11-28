@@ -19,9 +19,22 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
+    compile 'com.parse.bolts:bolts-android:1.2.1'
+    compile 'com.facebook.android:facebook-android-sdk:4.1.0'
+    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
+    compile fileTree(dir: 'libs', include: 'ParseFacebookUtils-*.jar')
+    compile 'com.squareup.picasso:picasso:2.3.2'
+    compile 'com.makeramen:roundedimageview:2.2.0'
 }
