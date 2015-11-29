@@ -7,11 +7,44 @@
     android:background="#fff"
     android:layout_margin="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buuu, no challenges available right now! :("
-        android:id="@+id/noChallengesTextView" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/noChallengesTextView"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical|center_horizontal|center"
+        android:visibility="gone"
+        >
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/sorry"
+            android:scaleType="centerInside"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="...no challenges are available right now. Come back later!"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:textSize="22sp"
+             />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/colorPrimary"
+            android:textColor="#fff"
+            android:layout_marginTop="30dp"
+            android:id="@+id/backBtt"
+            android:text="Come back later"/>
+
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -19,20 +52,44 @@
         android:id="@+id/waitingLayout"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal|center_vertical"
+        android:visibility="gone"
+        android:paddingTop="30dp"
         >
 
         <ProgressBar
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/progressBar"
             android:layout_gravity="center_horizontal"
-            android:indeterminate="true" />
+            android:indeterminate="true"
+            android:visibility="visible"
+            style="@android:style/Widget.ProgressBar.Large"
+            android:indeterminateOnly="true"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="waiting for challengers..."
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/prepareLayout"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Prepare, the challenge will start in 3 seconds"
+            />
+
 
     </LinearLayout>
 
@@ -48,15 +105,6 @@
         android:orientation="vertical">
 
 
-        <!--
-        <com.github.lzyzsd.circleprogress.DonutProgress
-            android:layout_marginLeft="50dp"
-            android:id="@+id/donut_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            custom:donut_progress="30"/>
-        -->
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -70,7 +118,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4. Which CFL player holds the record for most touchdowns in his career?" />
+            android:text="Which CFL player holds the record for most touchdowns in his career?"
+            android:id="@+id/questionTextView"
+            android:textSize="22sp" />
 
     </LinearLayout>
 
@@ -78,7 +128,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="15dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp">
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <RadioButton
             android:layout_width="fill_parent"
@@ -104,6 +160,8 @@
             android:text="New RadioButton"
             android:id="@+id/radioButton4" />
 
+        </RadioGroup>
+
     </LinearLayout>
 
     <Button
@@ -112,7 +170,8 @@
         android:text="Send"
         android:background="@color/colorPrimary"
         android:layout_marginTop="20dp"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:id="@+id/sendButton" />
 
     </LinearLayout>
 
