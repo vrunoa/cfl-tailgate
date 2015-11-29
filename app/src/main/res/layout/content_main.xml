@@ -13,11 +13,12 @@
     tools:showIn="@layout/app_bar_main"
     android:background="#222">
 
-    <ListView
+
+    <!-- ListView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/gameListView">
-    </ListView>
+    </ListView -->
 
 
 </RelativeLayout>

@@ -11,6 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cfltailgate.android.model.Question;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+
+import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -72,6 +77,21 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         updateQuestion();
+
+        App.getDataController().getPlays("VfPrNxlFuB", new FindCallback<ParseObject>(){
+            @Override
+            public void done(List list, ParseException e) {
+
+            }
+        });
+    }
+
+    private void getPlaySuccess(List list) {
+
+    }
+
+    private void getPlaysError(Exception e){
+
     }
 
     @Override

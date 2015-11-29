@@ -21,12 +21,20 @@ public class DataController {
     }
 
     public void foo() {
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Team");
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Play");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> list, ParseException e) {
                 // handle the list
             }
         });
+
+
+    }
+
+    public void getPlays(String gameId, FindCallback callback) {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Play");
+        query.whereEqualTo("game", gameId);
+        query.findInBackground(callback);
     }
 }

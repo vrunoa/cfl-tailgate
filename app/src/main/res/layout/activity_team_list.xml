@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp" 
+        android:src="@drawable/argos"
+        android:scaleType="centerInside"
+        android:background="@null" 
+        android:layout_margin="8dp" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/alouettes"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:layout_margin="8dp" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/bc"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:layout_margin="8dp" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/bombers"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:layout_margin="8dp" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/edmonton"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:layout_margin="8dp" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/redblacks"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:layout_margin="8dp" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/tigercats"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:layout_margin="8dp" />
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/sask"
+        android:scaleType="centerInside"
+        android:background="@null"
+        android:layout_margin="8dp" />
+
+</LinearLayout>
