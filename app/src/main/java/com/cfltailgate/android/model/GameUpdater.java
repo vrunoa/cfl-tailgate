@@ -17,7 +17,8 @@ import java.util.List;
 public class GameUpdater {
 
     public interface UpdateListener {
-        void onBetResolved(Bet bet);
+        void onNewBet(ParseObject bet);
+        void onBetResolved(ParseObject bet);
         void onNewPlay(String text);
         //void onScoreUpdated(int home, int away);
     }
@@ -36,6 +37,10 @@ public class GameUpdater {
         App.getDataController().getPlays(_gameId, new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> list, ParseException e) {
+                if (e != null) {
+                    System.err.println(e);
+                    return;
+                }
                 Handler handler = new Handler();
                 for (int i = 0; i < list.size(); i++) {
                     final ParseObject play = list.get(i);
@@ -44,7 +49,34 @@ public class GameUpdater {
                         public void run() {
                             listener.onNewPlay(play.getString("description"));
                         }
-                    }, 1500 + i * 5000);
+                    }, 1500 + play.getInt("tick") * 5000);
+                }
+            }
+        });
+
+        App.getDataController().getBets(_gameId, new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> list, ParseException e) {
+                if (e != null) {
+                    System.err.println(e);
+                    return;
+                }
+                Handler handler = new Handler();
+                for (int i = 0; i < list.size(); i++) {
+                    final ParseObject bet = list.get(i);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            listener.onNewBet(bet);
+                        }
+                    }, 1500 + bet.getInt("tickStart") * 5000);
+
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            listener.onBetResolved(bet);
+                        }
+                    }, 1500 + bet.getInt("tickEnd") * 5000);
                 }
             }
         });

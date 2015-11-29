@@ -40,6 +40,11 @@ public class DataController {
     }
 
     public void getBets(String gameId, FindCallback<ParseObject> callback) {
-
+        ParseObject game = new ParseObject("Game");
+        game.setObjectId(gameId);
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Bet");
+        query.whereEqualTo("game", game);
+        query.orderByAscending("tickStart");
+        query.findInBackground(callback);
     }
 }
