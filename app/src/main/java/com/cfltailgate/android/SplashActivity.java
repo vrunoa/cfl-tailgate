@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.cfltailgate.android.activities.TeamActivity;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
@@ -27,7 +28,6 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -52,6 +52,12 @@ public class SplashActivity extends Activity {
         finish();
     }
 
+    private void selectTeam() {
+        Intent intent = new Intent(SplashActivity.this, TeamActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void login(){
         Button fbBtt = (Button) findViewById(R.id.fbBtt);
         fbBtt.setVisibility(View.VISIBLE);
@@ -69,7 +75,11 @@ public class SplashActivity extends Activity {
                             Toast.makeText(SplashActivity.this, R.string.fb_coward, Toast.LENGTH_LONG);
                             return;
                         }
-                        enter();
+                        if(!parseUser.isNew()) {
+                            enter();
+                        }else{
+                            selectTeam();
+                        }
                     }
                 });
             }
