@@ -11,14 +11,41 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.cfltailgate.android.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    android:background="#222">
+    android:background="@color/colorBackground">
 
-
-    <!-- ListView
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/gameListView">
-    </ListView -->
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/tailgatelogo"/>
+
+        <Button android:id="@+id/trivia_button"
+            android:text="Trivia"
+            android:background="@color/colorRed"
+            android:layout_marginBottom="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button android:id="@+id/bet_button"
+            android:text="Make a bet"
+            android:background="@color/colorRed"
+            android:layout_marginBottom="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button android:id="@+id/challenge_button"
+            android:text="Challenge"
+            android:background="@color/colorRed"
+            android:layout_marginBottom="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>
