@@ -1,9 +1,11 @@
 package com.cfltailgate.android.activities;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -45,6 +47,7 @@ public class ChallengeActivity extends AppCompatActivity {
     private ScrollView questionsLayout;
     private LinearLayout prepareLayout;
     private boolean rigth_answer = false;
+    private Dialog winDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,9 +147,17 @@ public class ChallengeActivity extends AppCompatActivity {
 
     private void showResultDialog() {
         if(rigth_answer) {
-
+            winDialog = new Dialog(ChallengeActivity.this, R.style.fullHeightDialog);
+            View winView = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.win_dialog, null, false);
+            winDialog.setContentView(winView);
+            winDialog.setCancelable(true);
+            winDialog.show();
         }else{
-    
+            winDialog = new Dialog(ChallengeActivity.this, R.style.fullHeightDialog);
+            View winView = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.lose_dialog, null, false);
+            winDialog.setContentView(winView);
+            winDialog.setCancelable(true);
+            winDialog.show();
         }
     }
 
@@ -172,6 +183,7 @@ public class ChallengeActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                try{ winDialog.dismiss(); }catch(Exception e){}
                 rigth_answer = false;
                 redraw(prepareLayout);
             }
