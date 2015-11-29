@@ -20,4 +20,7 @@
     <string name="fb_coward">Facebook signup cancelled. You coward!</string>
     <string name="title_activity_game_list">GameListActivity</string>
     <string name="logging_out">login out...</string>
+    <string name="please_select_an_option">Please select an option</string>
+    <string name="sending_answer">sending answer...</string>
+    <string name="question_saved">we receive your question...</string>
 </resources>
