@@ -58,14 +58,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        //ListView gamesList = (ListView) findViewById(R.id.gameListView);
-
-        //gameAdapter = new GameAdapter(MainActivity.this, R.layout.adapter_game_item, new ArrayList<ParseObject>());
-        // gamesList.setAdapter(gameAdapter);
-
-
-
     }
 
     @Override

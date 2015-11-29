@@ -49,13 +49,14 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
 
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/app_id" />
-
         <activity
             android:name=".GameActivity"
             android:label="@string/title_activity_game" >
+        </activity>
+
+        <activity
+            android:name=".GameListActivity"
+            android:label="@string/title_activity_game_list" >
         </activity>
 
         <activity

@@ -20,6 +20,7 @@ public class DataController {
         _context = context;
     }
 
+
     public void foo() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Play");
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -31,13 +32,13 @@ public class DataController {
 
     }
 
-    /*
-    public void getPlays(String gameId, FindCallback callback) {
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Play");
-        query.whereEqualTo("game", gameId);
+    public void getGames(FindCallback<ParseObject> callback) {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Game");
+        query.include("home_team");
+        query.include("away_team");
+
         query.findInBackground(callback);
     }
-    */
 
     public void getPlays(String gameId, FindCallback<ParseObject> callback) {
         ParseObject game = new ParseObject("Game");
