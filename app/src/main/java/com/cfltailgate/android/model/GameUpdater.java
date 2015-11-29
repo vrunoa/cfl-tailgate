@@ -19,7 +19,7 @@ public class GameUpdater {
     public interface UpdateListener {
         void onNewBet(ParseObject bet);
         void onBetResolved(ParseObject bet);
-        void onNewPlay(String text);
+        void onNewPlay(String text, String time);
         //void onScoreUpdated(int home, int away);
     }
 
@@ -47,7 +47,7 @@ public class GameUpdater {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            listener.onNewPlay(play.getString("description"));
+                            listener.onNewPlay(play.getString("description"), play.getString("timeLeft"));
                         }
                     }, 1500 + play.getInt("tick") * 5000);
                 }

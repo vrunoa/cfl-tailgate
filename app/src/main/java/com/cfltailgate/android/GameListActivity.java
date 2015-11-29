@@ -1,5 +1,6 @@
 package com.cfltailgate.android;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cfltailgate.android.adapters.GameAdapter;
@@ -25,14 +27,23 @@ public class GameListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_list);
 
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         final ListView gamesListView = (ListView)findViewById(R.id.games_listview);
         gamesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ParseObject game = (ParseObject)parent.getAdapter().getItem(position);
-                String homeTeam = game.getParseObject("home_team").getString("name");
-                String awayTeam = game.getParseObject("away_team").getString("name");
-                Toast.makeText(GameListActivity.this, awayTeam + " vs " + homeTeam, Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(GameListActivity.this, GameActivity.class);
+                intent.putExtra(GameActivity.EXTRA_GAMEID, game.getObjectId());
+                intent.putExtra(GameActivity.EXTRA_HOMETEAM, game.getParseObject("home_team").getString("name"));
+                intent.putExtra(GameActivity.EXTRA_AWAYTEAM, game.getParseObject("away_team").getString("name"));
+                intent.putExtra(GameActivity.EXTRA_HOMELOGORESID,
+                        App.getLogoStore().getLogoResId(game.getParseObject("home_team").getObjectId()));
+                intent.putExtra(GameActivity.EXTRA_AWAYLOGORESID,
+                        App.getLogoStore().getLogoResId(game.getParseObject("away_team").getObjectId()));
+                startActivity(intent);
             }
         });
 
