@@ -20,14 +20,11 @@ public class DataController {
         _context = context;
     }
 
-    public void foo() {
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Team");
-        query.findInBackground(new FindCallback<ParseObject>() {
-            @Override
-            public void done(List<ParseObject> list, ParseException e) {
-                // handle the list
-            }
-        });
+    public void getGames(FindCallback<ParseObject> callback) {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Game");
+        query.include("home_team");
+        query.include("away_team");
+        query.findInBackground(callback);
     }
 
     public void getPlays(String gameId, FindCallback<ParseObject> callback) {

@@ -23,11 +23,7 @@
             android:name=".SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -57,11 +53,20 @@
             android:name=".GameActivity"
             android:label="@string/title_activity_game" >
         </activity>
-        
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-                   android:value="@string/app_id"/>
 
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
 
+        <activity
+            android:name=".GameListActivity"
+            android:label="@string/title_activity_game_list" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
