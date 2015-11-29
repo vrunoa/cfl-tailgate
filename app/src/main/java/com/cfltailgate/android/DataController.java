@@ -29,14 +29,15 @@ public class DataController {
             }
         });
 
-
     }
 
+    /*
     public void getPlays(String gameId, FindCallback callback) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Play");
         query.whereEqualTo("game", gameId);
         query.findInBackground(callback);
     }
+    */
 
     public void getPlays(String gameId, FindCallback<ParseObject> callback) {
         ParseObject game = new ParseObject("Game");

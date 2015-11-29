@@ -7,11 +7,35 @@
     android:background="#fff"
     android:layout_margin="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buuu, no challenges available right now! :("
-        android:id="@+id/noChallengesTextView" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/noChallengesTextView"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical|center_horizontal|center">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Sorry... no challenges are available right now. Come back later!"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:textSize="22sp"
+            android:layout_marginTop="20dp"
+             />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/colorPrimary"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+            android:text="Go back"/>
+
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -26,7 +50,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/progressBar"
             android:layout_gravity="center_horizontal"
-            android:indeterminate="true" />
+            android:indeterminate="true"
+            android:visibility="visible"
+            android:indeterminateOnly="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,12 +74,6 @@
         android:orientation="vertical">
 
 
-        <com.github.lzyzsd.circleprogress.DonutProgress
-            android:layout_marginLeft="50dp"
-            android:id="@+id/donut_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            custom:donut_progress="30"/>
 
 
     <LinearLayout
