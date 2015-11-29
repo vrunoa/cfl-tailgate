@@ -146,7 +146,7 @@ public class ChallengeActivity extends AppCompatActivity {
         if(rigth_answer) {
 
         }else{
-
+    
         }
     }
 
