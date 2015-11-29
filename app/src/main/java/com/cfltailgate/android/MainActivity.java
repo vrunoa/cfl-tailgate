@@ -118,6 +118,9 @@ public class MainActivity extends AppCompatActivity
         if(id == R.id.nav_challenges) {
             Intent intent = new Intent(MainActivity.this, ChallengeActivity.class);
             startActivity(intent);
+        } else if (id == R.id.nav_bets) {
+            Intent intent = new Intent(MainActivity.this, GameListActivity.class);
+            startActivity(intent);
         }
 
         /*

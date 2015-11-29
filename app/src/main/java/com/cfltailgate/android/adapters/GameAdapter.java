@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.cfltailgate.android.App;
 import com.cfltailgate.android.R;
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -33,8 +36,17 @@ public class GameAdapter extends ArrayAdapter<ParseObject> {
         ParseObject game = (ParseObject)getItem(position);
         String homeTeam = game.getParseObject("home_team").getString("name");
         String awayTeam = game.getParseObject("away_team").getString("name");
+        ((TextView)rowView.findViewById(R.id.home_name_textview)).setText(homeTeam);
+        ((TextView)rowView.findViewById(R.id.away_name_textview)).setText(awayTeam);
 
+        String homeId = game.getParseObject("home_team").getObjectId();
+        String awayId = game.getParseObject("away_team").getObjectId();
 
+        int homeResId = App.getLogoStore().getLogoResId(homeId);
+        int awayResId = App.getLogoStore().getLogoResId(awayId);
+
+        ((ImageView)rowView.findViewById(R.id.home_logo_imageview)).setImageResource(homeResId);
+        ((ImageView)rowView.findViewById(R.id.away_logo_imageview)).setImageResource(awayResId);
 
         return rowView;
     }

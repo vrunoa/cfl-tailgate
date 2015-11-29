@@ -48,13 +48,14 @@
         android:orientation="vertical">
 
 
+        <!--
         <com.github.lzyzsd.circleprogress.DonutProgress
             android:layout_marginLeft="50dp"
             android:id="@+id/donut_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             custom:donut_progress="30"/>
-
+        -->
 
     <LinearLayout
         android:layout_width="fill_parent"

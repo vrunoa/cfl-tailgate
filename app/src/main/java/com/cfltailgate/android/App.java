@@ -3,6 +3,7 @@ package com.cfltailgate.android;
 import android.app.Application;
 import android.content.Context;
 
+import com.cfltailgate.android.model.LogoStore;
 import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
 
@@ -13,6 +14,7 @@ public class App extends Application {
 
     private static App _instance;
     private static DataController _dataController;
+    private static LogoStore _logoStore;
 
     public App() {
         super();
@@ -35,5 +37,12 @@ public class App extends Application {
             _dataController = new DataController(getInstance().getApplicationContext());
         }
         return _dataController;
+    }
+
+    public static LogoStore getLogoStore() {
+        if (_logoStore == null) {
+            _logoStore = new LogoStore();
+        }
+        return _logoStore;
     }
 }
