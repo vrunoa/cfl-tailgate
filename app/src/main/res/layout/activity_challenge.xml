@@ -56,23 +56,39 @@
         android:paddingTop="30dp"
         >
 
-        <ProgressBar
+        <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressBar"
-            android:layout_gravity="center_horizontal"
-            android:indeterminate="true"
-            android:visibility="visible"
-            style="@android:style/Widget.ProgressBar.Large"
-            android:indeterminateOnly="true"/>
+            android:layout_height="100dp">
+
+            <ProgressBar
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/wProgressBar"
+                android:layout_gravity="center_horizontal"
+                android:indeterminate="true"
+                android:visibility="visible"
+                android:indeterminateOnly="true" android:layout_centerInParent="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/wPrepareTimeTextView"
+                android:text="10"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="waiting for challengers..."
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp" />
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:gravity="center"
+            />
 
     </LinearLayout>
 
@@ -87,8 +103,34 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:text="Prepare, the challenge will start in 3 seconds"
+            android:text="Get ready, the next question starts in"
             />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100dp">
+
+            <ProgressBar
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/pProgressBar"
+                android:layout_gravity="center_horizontal"
+                android:indeterminate="true"
+                android:visibility="visible"
+                android:indeterminateOnly="true" android:layout_centerInParent="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pPrepareTimeTextView"
+                android:text="3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+
 
 
     </LinearLayout>
@@ -97,6 +139,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/questionsLayout"
+        android:visibility="gone"
         >
 
     <LinearLayout
@@ -104,6 +147,30 @@
         android:layout_height="fill_parent"
         android:orientation="vertical">
 
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100dp">
+
+            <ProgressBar
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/qProgressBar"
+                android:layout_gravity="center_horizontal"
+                android:indeterminate="true"
+                android:visibility="visible"
+                android:indeterminateOnly="true" android:layout_centerInParent="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/qPrepareTimeTextView"
+                android:text="10"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -176,5 +243,54 @@
     </LinearLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/thankLayout"
+        android:visibility="visible"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nice!\n You earn"
+            android:textSize="24sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pointsTextView"
+                android:textSize="76sp"
+                android:text="0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="points."/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Share"
+            android:id="@+id/shareBtt"
+            android:background="@color/colorPrimary"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="share your results to get extra points!" />
+
+    </LinearLayout>
 
 </LinearLayout>

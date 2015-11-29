@@ -13,6 +13,7 @@
     <string name="false_button">False</string>
     <string name="next_button">Next</string>
 
+    <string name="share_points">Hey, I win %1$spoints on the #cfltailgate challenge!</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_game">Game Stream</string>
