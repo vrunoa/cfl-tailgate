@@ -21,29 +21,32 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/tailgatelogo"/>
+            android:layout_height="200dp"
+            android:src="@drawable/newtailgatelogo1"/>
 
         <Button android:id="@+id/trivia_button"
             android:text="Trivia"
             android:background="@color/colorRed"
             android:layout_marginBottom="6dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#fff" />
 
         <Button android:id="@+id/bet_button"
             android:text="Make a bet"
             android:background="@color/colorRed"
             android:layout_marginBottom="6dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#fff" />
 
         <Button android:id="@+id/challenge_button"
             android:text="Challenge"
             android:background="@color/colorRed"
             android:layout_marginBottom="6dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="#fff"/>
 
     </LinearLayout>
 

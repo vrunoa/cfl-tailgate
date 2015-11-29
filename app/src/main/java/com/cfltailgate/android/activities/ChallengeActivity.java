@@ -403,7 +403,7 @@ public class ChallengeActivity extends AppCompatActivity {
     private void challengeAnswer(JSONObject question, JSONObject answer) {
         try {
             String cId = question.getString("c");
-            String aId = question.getString("id");
+            String aId = answer.getString("id");
             if (cId.equalsIgnoreCase(aId)) {
                 rigth_answer = true;
             }

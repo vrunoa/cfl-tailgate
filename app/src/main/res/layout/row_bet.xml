@@ -17,6 +17,7 @@
               android:text="What is your bet?"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_toLeftOf="@id/yes_button"/>
+              android:layout_toLeftOf="@id/yes_button"
+        android:textColor="#fff"/>
 
 </RelativeLayout>

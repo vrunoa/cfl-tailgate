@@ -18,6 +18,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cfltailgate.android.activities.ChallengeActivity;
+import com.cfltailgate.android.activities.PrizesActivity;
+import com.cfltailgate.android.activities.TriviaActivity;
 import com.cfltailgate.android.adapters.GameAdapter;
 import com.cfltailgate.android.utils.Utils;
 import com.parse.LogOutCallback;
@@ -65,13 +67,12 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 Class activity = null;
                 if (v.getId() == R.id.trivia_button) {
-                    // ?
+                    activity = TriviaActivity.class;
                 } else if (v.getId() == R.id.bet_button) {
                     activity = GameListActivity.class;
                 } else if (v.getId() == R.id.challenge_button) {
                     activity = ChallengeActivity.class;
                 }
-
                 if (activity != null) {
                     startActivityHelper(activity);
                 }
@@ -143,6 +144,10 @@ public class MainActivity extends AppCompatActivity
             startActivityHelper(ChallengeActivity.class);
         } else if (id == R.id.nav_bets) {
             startActivityHelper(GameListActivity.class);
+        }else if(id == R.id.nav_news) {
+            // http://cfl.ca/news
+        }else if(id == R.id.nav_prizes) {
+            startActivityHelper(PrizesActivity.class);
         }
 
         /*
