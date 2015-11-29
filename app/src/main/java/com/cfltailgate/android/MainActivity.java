@@ -24,6 +24,7 @@ import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.squareup.okhttp.Challenge;
 
 import java.util.ArrayList;
 
@@ -58,6 +59,29 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View.OnClickListener mainButtonClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Class activity = null;
+                if (v.getId() == R.id.trivia_button) {
+                    // ?
+                } else if (v.getId() == R.id.bet_button) {
+                    activity = GameListActivity.class;
+                } else if (v.getId() == R.id.challenge_button) {
+                    activity = ChallengeActivity.class;
+                }
+
+                if (activity != null) {
+                    startActivityHelper(activity);
+                }
+            }
+        };
+
+        int[] buttonIds = new int[] { R.id.trivia_button, R.id.bet_button, R.id.challenge_button };
+        for (int id : buttonIds) {
+            findViewById(id).setOnClickListener(mainButtonClickListener);
+        }
     }
 
     @Override
@@ -115,12 +139,10 @@ public class MainActivity extends AppCompatActivity
             });
 
         }
-        if(id == R.id.nav_challenges) {
-            Intent intent = new Intent(MainActivity.this, ChallengeActivity.class);
-            startActivity(intent);
+        if (id == R.id.nav_challenges) {
+            startActivityHelper(ChallengeActivity.class);
         } else if (id == R.id.nav_bets) {
-            Intent intent = new Intent(MainActivity.this, GameListActivity.class);
-            startActivity(intent);
+            startActivityHelper(GameListActivity.class);
         }
 
         /*
@@ -141,5 +163,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    void startActivityHelper(Class activity) {
+        Intent intent = new Intent(this, activity);
+        startActivity(intent);
     }
 }

@@ -15,9 +15,9 @@
 
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_game">Game Stream</string>
     <string name="fb_signin_error">An error occurr while trying to signin with Facebook. Try again!</string>
     <string name="fb_coward">Facebook signup cancelled. You coward!</string>
-    <string name="title_activity_game_list">GameListActivity</string>
+    <string name="title_activity_game_list">Choose your game!</string>
     <string name="logging_out">login out...</string>
 </resources>
