@@ -69,14 +69,14 @@ public class GameUpdater {
                         public void run() {
                             listener.onNewBet(bet);
                         }
-                    }, 1500 + bet.getInt("tickStart") * 5000);
+                    }, 1500 + bet.getInt("tickStart") * 2000);
 
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             listener.onBetResolved(bet);
                         }
-                    }, 1500 + bet.getInt("tickEnd") * 5000);
+                    }, 1500 + bet.getInt("tickEnd") * 2000);
                 }
             }
         });
